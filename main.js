@@ -282,9 +282,11 @@ let res41 = str31.endsWith("bye");
 let users = [
   { id: 1, name: "Ali", age: 25, isActive: true },
   { id: 2, name: "Bobur", age: 30, isActive: false },
-  { id: 3, name: "Zara", age: 22, isActive: true },
+  { id: 3, name: "Zara", age: 26, isActive: true },
 ];
-
+const result = users.filter((user) => {
+  return user.age > 25;
+});
 // ============
 // 43-masala:
 //products massivida price qiymati 500 dan kichik bo‘lgan mahsulotlarni aniqlang.
@@ -293,7 +295,9 @@ let products = [
   { id: 102, name: "Phone", price: 500, rating: 4.2 },
   { id: 103, name: "Tablet", price: 300, rating: 4.8 },
 ];
-
+const result1 = products.filter((product) => {
+  return product < 500;
+});
 // ============
 // 44-masala:
 //tasks massivida status qiymati "pending" bo‘lgan vazifalarni boshqa massivga ajrating.
@@ -302,7 +306,9 @@ let tasks = [
   { id: 2, title: "Clean room", status: "pending" },
   { id: 3, title: "Go shopping", status: "pending" },
 ];
-
+const result2 = tasks.filter((task) => {
+  return task.status == "pending";
+});
 // ============
 // 45-masala:
 //users massivida isActive qiymati true bo‘lgan foydalanuvchilar sonini hisoblang.
@@ -311,7 +317,12 @@ let users1 = [
   { id: 2, name: "Bobur", age: 30, isActive: false },
   { id: 3, name: "Zara", age: 22, isActive: true },
 ];
-
+let counter = 0;
+users1.forEach((user) => {
+  if (user.isActive) {
+    counter++;
+  }
+});
 // ============
 // 46-masala:
 //products massivida rating qiymati eng yuqori bo‘lgan mahsulotni toping.
@@ -320,7 +331,16 @@ let products1 = [
   { id: 102, name: "Phone", price: 500, rating: 4.2 },
   { id: 103, name: "Tablet", price: 300, rating: 4.8 },
 ];
+let maxRating = products1[0].rating;
+let maxProduct = products1[0];
 
+products1.forEach((product) => {
+  if (maxRating < product.rating) {
+    maxRating = product.rating;
+    maxProduct = product;
+  }
+});
+console.log(maxProduct);
 // ============
 // 47-masala:
 //users massividagi har bir foydalanuvchining faqat name va age qiymatlarini ajratib oling.
@@ -329,7 +349,11 @@ let users2 = [
   { id: 2, name: "Bobur", age: 30, isActive: false },
   { id: 3, name: "Zara", age: 22, isActive: true },
 ];
-
+const result4 = users2.map((user) => {
+  delete user.id;
+  delete user.isActive;
+  return user;
+});
 // ============
 // 48-masala:
 //products massivida price qiymati eng kichik bo‘lgan mahsulotni aniqlang.
@@ -338,7 +362,16 @@ let products2 = [
   { id: 102, name: "Phone", price: 500, rating: 4.2 },
   { id: 103, name: "Tablet", price: 300, rating: 4.8 },
 ];
+let minPrice = products2[0].price;
+let minProduct = products2[0];
 
+products2.forEach((product) => {
+  if (minPrice > product.price) {
+    minPrice = product.price;
+    minProduct = product;
+  }
+});
+console.log(minProduct);
 // ============
 // 49-masala:
 //tasks massivida title qiymati "Clean room" bo‘lgan vazifaning indeksini aniqlang.
@@ -347,7 +380,11 @@ let tasks1 = [
   { id: 2, title: "Clean room", status: "pending" },
   { id: 3, title: "Go shopping", status: "pending" },
 ];
-
+const result5 = tasks1.find((task) => {
+  if (task.title == "Clean room") {
+    return tasks1.indexOf(task);
+  }
+});
 // ============
 // 50-masala:
 //users massivida barcha foydalanuvchilarning age qiymatlari yig‘indisini hisoblang.
@@ -356,6 +393,10 @@ let users3 = [
   { id: 2, name: "Bobur", age: 30, isActive: false },
   { id: 3, name: "Zara", age: 22, isActive: true },
 ];
+let sum = 0;
+users3.forEach((user) => {
+  sum += user.age;
+});
 
 // ============
 // 51-masala:
@@ -365,6 +406,10 @@ let products3 = [
   { id: 102, name: "Phone", price: 500, rating: 4.2 },
   { id: 103, name: "Tablet", price: 300, rating: 4.8 },
 ];
+const result6 = products3.map((product) => {
+  product.price *= 0.9;
+  return product;
+});
 
 // ============
 // 52-masala:
@@ -374,7 +419,9 @@ let users4 = [
   { id: 2, name: "Bobur", age: 30, isActive: false },
   { id: 3, name: "Zara", age: 22, isActive: true },
 ];
-
+const result7 = users4.find((user) => {
+  return user.name == "Ali";
+});
 // ============
 // 53-masala:
 //tasks massivida barcha status qiymatlari "completed" ekanligini tekshiring.
@@ -383,7 +430,9 @@ let tasks2 = [
   { id: 2, title: "Clean room", status: "completed" },
   { id: 3, title: "Go shopping", status: "completed" },
 ];
-
+let result8 = tasks2.every((task) => {
+  return task.status == "completed";
+});
 // ============
 // 54-masala:
 //products massivida rating qiymati 4 dan katta bo‘lgan mahsulotlar sonini hisoblang.
@@ -392,7 +441,14 @@ let products4 = [
   { id: 102, name: "Phone", price: 500, rating: 3.9 },
   { id: 103, name: "Tablet", price: 300, rating: 4.8 },
 ];
+let counter1 = 0;
+products4.forEach((product) => {
+  if (product.rating > 4) {
+    counter++;
+  }
+});
 
+console.log(counter);
 // ============
 // 55-masala:
 //users massivida age qiymati eng katta bo‘lgan foydalanuvchini aniqlang.
@@ -402,6 +458,17 @@ let users5 = [
   { id: 3, name: "Zara", age: 22, isActive: true },
 ];
 
+let maxAge = users5[0].age;
+let maxUser = users5[0];
+
+users5.forEach((user) => {
+  if (maxAge < user.age) {
+    maxAge = user.age;
+    maxUser = user;
+  }
+});
+
+console.log(maxUser);
 // ============
 // 56-masala:
 //tasks massivida har bir title qiymatini bosh harfini katta qilib yangi massiv yarating.
@@ -410,3 +477,7 @@ let tasks3 = [
   { id: 2, title: "clean room", status: "pending" },
   { id: 3, title: "go shopping", status: "pending" },
 ];
+const result9 = tasks3.map((task) => {
+  return task.title[0].toUpperCase(1) + task.title.slice(1);
+});
+console.log(result9);
