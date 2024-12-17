@@ -1,63 +1,134 @@
+// All function
+const arrRandomNumber = (arr) => {
+  let array = new Array(arr);
+
+  for (let i = 0; i < arr; i++) {
+    array[i] = Math.trunc(Math.random() * 200 - 100);
+  }
+  return array;
+};
+
 // ============
 // 1-masala:
 // Massiv ichida 5 ga karrali bo‘lgan birinchi elementni toping.
+const arr = arrRandomNumber(10);
+let res = arr.find((element) => {
+  return element % 5 == 0;
+});
 
 // ============
 // 2-masala:
 //  Massiv ichida 20 dan kichik bo‘lgan birinchi toq sonning indeksini toping.
+const arr1 = arrRandomNumber(10);
+
+let res1 = arr1.find((element) => {
+  if (element % 2 != 0) {
+    return element < 20;
+  }
+});
 
 // ============
 // 3-masala:
 //  Massiv ichida 0 bilan tugaydigan birinchi elementni toping.
+const arr2 = arrRandomNumber(10);
+
+let res2 = arr2.find((element) => {
+  return element % 10 == 0;
+});
 
 // ============
 // 4-masala:
 //  Massivda 50 ga teng yoki undan katta elementlar bor-yo‘qligini aniqlang.
+const arr3 = arrRandomNumber(10);
+
+let res3 = arr3.some((element) => {
+  return element >= 50;
+});
 
 // ============
 // 5-masala:
 //  Massivda manfiy sonlar bor-yo‘qligini aniqlang.
+const arr4 = arrRandomNumber(10);
+
+let res4 = arr4.some((element) => {
+  return element < 0;
+});
 
 // ============
 // 6-masala:
 //  Massivda 3 ga karrali bo‘lgan sonlar bor-yo‘qligini tekshiring.
+const arr5 = arrRandomNumber(10);
+
+let res5 = arr5.some((element) => {
+  return element % 3 == 0;
+});
 
 // ============
 // 7-masala:
 //Massivdagi barcha sonlar musbat ekanligini tekshiring.
+const arr6 = arrRandomNumber(10);
+
+let res6 = arr6.every((element) => {
+  return element > 0;
+});
 
 // ============
 // 8-masala:
 //Massivdagi barcha sonlar 10 dan katta ekanligini tekshiring.
+const arr7 = arrRandomNumber(10);
+
+let res7 = arr7.every((element) => {
+  return element > 10;
+});
 
 // ============
 // 9-masala:
 //Massivdagi barcha sonlar toq ekanligini aniqlang.
+const arr8 = arrRandomNumber(10);
+
+let res8 = arr8.every((element) => {
+  return element % 2 != 0;
+});
 
 // ============
 // 10-masala:
 //Berilgan matnning uchinchi belgisi nima ekanligini aniqlang.
-
+const str = ["Salom dunyo!"];
+const res9 = str.charAt(2);
+console.log(res9);
 // ============
 // 11-masala:
 //Matnning oxiridan ikkinchi belgisini toping.
-
+const str1 = "Salom dunyo!";
+const arr11 = str1.split("");
+let lastIndex = arr11.length;
+let res10 = lastIndex - 2;
+console.log(str1.charAt(res10));
 // ============
 // 12-masala:
 //Berilgan matnning birinchi belgisi uchun Unicode qiymatini aniqlang.
-
+const str2 = "Salom dunyo!";
+let res12 = str2.charCodeAt(0);
+console.log(res)
 // ============
 // 13-masala:
 //Matnning beshinchi belgisining Unicode qiymatini toping.
-
+const str3 = "Salom dunyo!"
+let res13 = str3.charCodeAt(4)
 // ============
 // 14-masala:
 //Berilgan matndan birinchi 5 ta belgini ajratib oling.
-
+const str4 = "Salom dunyo!"
+let res14 = str4.slice(0, 5)
+console.log(res14)
 // ============
 // 15-masala:
 //Matnning oxirgi 3 ta belgisini ajratib oling.
-
+const str5 = "Salom dunyo!"
+const arr15 = str5.split("")
+let lastThreeIndex = arr15.length - 3
+let res15 = str5.slice(lastThreeIndex, arr15.length)
+console.log(res15)
 // ============
 // 16-masala:
 //Matnning 2-pozitsiyadan boshlab 6-pozitsiyagacha bo‘lgan qismini ajrating.
